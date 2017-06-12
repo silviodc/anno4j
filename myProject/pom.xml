@@ -7,14 +7,14 @@
 		<version>2.3.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>myProject</artifactId>
-	
+
 	<dependencies>
 		<dependency>
 			<groupId>com.github.anno4j</groupId>
 			<artifactId>anno4j-core</artifactId>
 		</dependency>
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -32,9 +32,12 @@
 							<target>1.8</target>
 
 							<transformers>
-								<transformer
-									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>project.main.Main</mainClass>
+								<transformer implementation="org.apache.maven.plugins.shade.resource.PluginXmlResourceTransformer" />
+
+								<transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
+
+								<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+									<mainClass>myProject.main.Main</mainClass>
 								</transformer>
 							</transformers>
 						</configuration>
